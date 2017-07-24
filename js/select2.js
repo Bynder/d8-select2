@@ -4,6 +4,7 @@
             if (typeof drupalSettings.select2 != 'undefined') {
                 $.each(drupalSettings.select2, function (id, options) {
                     $(options.selector).css({'width': '150px'}).select2({
+                        allowClear: true,
                         multiple: options.multiple,
                         placeholder: options.placeholder_text
                     });
