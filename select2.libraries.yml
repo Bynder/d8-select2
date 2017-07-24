@@ -1,0 +1,23 @@
+select2:
+  remote: https://github.com/select2/select2
+  version: 4.0.3
+  license:
+      name: MIT
+      url: https://github.com/select2/select2/blob/master/LICENSE.md
+      gpl-compatible: true
+  js:
+    /libraries/select2/dist/js/select2.min.js: { minified: true }
+  css:
+    component:
+      /libraries/select2/dist/css/select2.min.css: {}
+  dependencies:
+    - core/jquery
+
+select2.widget:
+  js:
+    js/select2.js: { weight: -1, minified: false }
+  css:
+    layout:
+      css/select2.css: {}
+  dependencies:
+    - select2/select2

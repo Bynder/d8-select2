@@ -1,0 +1,5 @@
+name: Select2 integration
+type: module
+description: Adds integration with the <a herf="http://ivaynberg.github.io/select2" target="_blank">Select2</a> Javascript plugin.
+package: User interface
+core: 8.x

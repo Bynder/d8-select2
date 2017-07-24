@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * Implements hook_requirements().
+ */
+function select2_requirements($phase) {
+  if ($phase != 'runtime') {
+    return [];
+  }
+
+  if (function_exists('libraries_get_path')) {
+    $path = libraries_get_path('select2') . '/dist/js/select2.full.min.js';
+  }
+  else {
+    $path = DRUPAL_ROOT . '/libraries/select2/dist/js/select2.full.min.js';
+  }
+
+  $exists = is_file($path);
+
+  return [
+    'select2_library' => [
+      'title' => t('Select2 library'),
+      'description' => $exists ? '' : t(
+        'The <a href=":url">Select2 library</a> should be installed at <strong>/libraries/select2</strong>, or any path supported by libraries.module if installed.',
+        [':url' => 'https://select2.github.io/']
+      ),
+      'severity' => $exists ? REQUIREMENT_OK : REQUIREMENT_ERROR,
+      'value' => $exists ? t('Installed') : t('Not installed'),
+    ],
+  ];
+}

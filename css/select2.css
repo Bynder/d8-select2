@@ -1,0 +1,29 @@
+.select2-results__option[aria-selected=true] {
+    display: none;
+}
+
+.select2-container--default
+.select2-selection--multiple
+.select2-selection__choice.status-unpublished {
+    background-color: #e62600;
+}
+
+.select2-container--default
+.select2-selection--multiple
+.select2-selection__choice.status-published {
+    background-color: #77b259;
+}
+
+.select2-container--default
+.select2-selection--multiple
+.select2-selection__choice.status-published
+.select2-selection__choice__remove {
+    color: #6b6b6b;
+}
+
+.select2-container--default
+.select2-selection--multiple
+.select2-selection__choice.status-unpublished
+.select2-selection__choice__remove {
+    color: #b5b3b3;
+}
