@@ -44,12 +44,17 @@ class Select2SimpleElement extends Select {
         Html::getUniqueId('select2-simple-element')
       );
 
+    $base_url = \Drupal::request()->getSchemeAndHttpHost();
     $element['#attributes']['class'][] = $class;
     $select2_settings = [
       'selector' => '.' . $class,
       'placeholder_text' =>  $element['#placeholder_text'],
-      'multiple' => $element['#multiple']
+      'multiple' => $element['#multiple'],
+      'base_url' => $base_url
     ];
+    if(isset($element['#loadRemoteData'])) {
+      $select2_settings['loadRemoteData'] = ['url'=>$base_url . $element['#loadRemoteData']];
+    }
 
     $element['#attached']['drupalSettings']['select2'][$class] = $select2_settings;
     $element['#attached']['library'] = ['select2/select2.widget'];
